@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+<style>
+    body{
+     
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        background-color: pink;
+
+}
+.resume{
+    display: none;
+}
+.times span{
+border-radius: 7px;
+
+    
+    padding: 10px;
+   width: 100px;
+   margin: 2px;
+   background-color: violet;
+   font-size: 19px;
+   color: white;
+
+
+
+
+
+}
+.times{
+    margin-bottom: 20px;
+
+}
+.btns button{
+    padding: 5px;
+   font-size: 16px;
+   border-radius: 10px;
+   width: 100px;
+   border: none;
+cursor: pointer;
+
+
+
+}button:hover{
+    opacity: 0.9;
+}
+</style>
+
+<body>
+    <div class="times">
+        <span class="count3">00
+
+        </span>
+    
+        <span class="counter2">00
+    
+        </span>
+        <span class="counter">00
+    
+        </span>
+
+    </div>
+    <div class="btns">
+        <button style="cursor: pointer;" class="start">Start</button>
+        <button class="Stop">Stop</button>
+        <button class="reset">reset</button>
+        <button class="resume">resume</button>
+        
+    </div>
+    
+
+
+  
+
+    <script>
+
+        let count = 59
+        let count2 = 1;
+        let count3
+        let setintrId;
+     
+
+        function counter() {
+
+
+
+            if (count) {
+                count--
+
+
+
+                if (count < 10) {
+                    document.querySelector('.counter').innerHTML = ":" + "0" + count
+
+                } else {
+                    document.querySelector('.counter').innerHTML = ":" + count
+                }
+            }
+            else {
+                count = 59
+
+                count2--
+                document.querySelector('.counter2').innerHTML = "0" + count2
+                if (count2 < 0) {
+
+                    clearInterval(setintrId)
+                    document.querySelector('.counter2').innerHTML = "00"
+
+
+                }
+            }
+
+
+        }
+
+        document.querySelector('.start').addEventListener('click', () => {
+            count2 = 1
+            document.querySelector('.counter2').innerHTML = "0" + count2
+           
+            setintrId = setInterval(counter, 1000)
+        })
+        document.querySelector('.resume').addEventListener('click', () => {
+            document.querySelector('.resume').style.display='none'
+
+            setintrId = setInterval(counter, 1000)
+        })
+
+
+
+        document.querySelector('.Stop').addEventListener('click', () => {
+            document.querySelector('.resume').style.display='inLine'
+
+
+            clearInterval(setintrId)
+        })
+        document.querySelector('.reset').addEventListener('click', () => {
+
+            count = 59
+            count2 = 1
+            count3 = 0
+            document.querySelector('.counter2').innerHTML = "00"
+            document.querySelector('.counter').innerHTML = '00'
+            document.querySelector('.count3').innerHTML = '00'
+            clearInterval(setintrId)
+
+        })
+
+
+    </script>
+</body>
+
+</html>

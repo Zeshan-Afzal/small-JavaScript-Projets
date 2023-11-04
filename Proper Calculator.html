@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    body {
+        background-color: #dde4e4;
+    }
+
+   .cont h1 {
+        text-align: center;
+        color: white;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+
+    }
+
+    .cont {
+        height: 448px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        max-width: 268px;
+        margin: auto;
+        margin-top: 40px;
+        border: 0px solid grey;
+        background-color: rgb(20 13 13 / 82%);
+        box-shadow: 0px 0px 1px 0px gray;
+        border-radius: 5px;
+
+    }
+
+    button,
+    .b {
+        width: 43px;
+        height: 43px;
+        margin: 5px 3px;
+        cursor: pointer;
+        border: 2px solid black;
+        border-radius: 9px;
+        background-color: #19080800;
+        transition: 0.2s ease;
+        box-shadow: 0px 0px 4px 1px #100808;
+        color: white;
+
+
+    }
+
+    .b:hover {
+        background-color: #19080846;
+        position: relative;
+        left: 1px;
+    }
+
+    button:hover {
+        background-color: #19080846;
+        position: relative;
+        left: 1px;
+
+    }
+
+    .inp {
+        width: 182px;
+        height: 28px;
+        margin: 10px;
+        border: 2px sold gray;
+        border-radius: 6px;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 7px 1px gray;
+
+    }
+
+    #D {
+        /* flex-basis: 250px; */
+    }
+</style>
+
+
+
+<!-- Markup Starts here -->
+
+<body>
+
+    <h1 style="text-align: center;">Calculator</h1>
+
+    <div class="cont">
+        <h1>Caculate</h1>
+
+
+        <input class="inp" type="text" name="" id="id">
+
+
+        <div class="oprators">
+
+        </div>
+        <div class="container">
+            <div class="numbers">
+
+
+
+                <input class="b" onclick="f2()" type="submit" name="" id="" value="C">
+                <input class="b" onclick="f3()" type="submit" name="" id="D" value="D">
+                <button class="btn">S+</button>
+
+                <button class="btn">%</button>
+            </div>
+
+            <div class="numbers">
+
+                <button class="btn">9</button>
+                <button class="btn">8</button>
+                <button class="btn">7</button>
+                <button class="btn">+</button>
+            </div>
+            <div class="numbers">
+
+                <button class="btn">6</button>
+                <button class="btn">5</button>
+                <button class="btn">4</button>
+                <button class="btn">/</button>
+            </div>
+            <div class="numbers">
+
+                <button class="btn">3</button>
+                <button class="btn">2</button>
+                <button class="btn">1</button>
+                <button class="btn">-</button>
+
+            </div>
+            <div class="numbers">
+
+
+
+                <button class="btn">0</button>
+                <button class="btn">.</button>
+
+
+                <input class="b" onclick="f1()" type="submit" name="" id="" value="=">
+
+
+
+
+
+                <button class="btn">*</button>
+
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript Starts here -->
+
+    <script>
+
+        document.getElementById('id').value = ''
+
+        buttons = document.querySelectorAll('.btn');
+
+        let screenval = ''
+        buttons.forEach(
+
+            addEventListener('click', (e) => {
+
+                buttonText = e.target.innerText;
+                document.getElementById('id').value += buttonText;
+                val = document.getElementById('id').value
+
+            })
+        )
+
+        function f1() {
+            a = "";
+            a = eval(val);
+            document.getElementById('id').value = a
+        }
+        function f2() {
+            a = "";
+
+            document.getElementById('id').value = a
+        }
+        function f3() {
+
+            a = val;
+            a = a.toString().slice(0, -1)
+
+            document.getElementById('id').value = a
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>

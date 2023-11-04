@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gusse The Number 2.0</title>
+
+
+    <style>
+        body {
+            background-color: rgb(130, 144, 139);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            margin: auto;
+            background-color: rgb(131, 159, 184);
+            border: 2px solid black;
+            border-radius: 23px;
+            flex-direction: column;
+            margin-top: 90px;
+        }
+
+        input {
+            margin-top: 6px;
+            margin-bottom: 16px;
+            width: 250px;
+            height: 27px;
+            border: none;
+            border-radius: 9px;
+            background-color: rgb(252, 254, 255);
+            box-shadow: 0px 0px 6px 0px rgb(182, 180, 180);
+        }
+
+        .p1 {
+            margin-bottom: 20px;
+            font-size: 17px;
+
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            color: white;
+            padding: 6px;
+            background-color: orangered;
+            border-radius: 9px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 17px;
+        }
+
+        button:hover {
+            background-color: orange;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Gusse the Number</h1>
+        <p class="p1"> Enter a number between 1 to 100 and check if its match <br> with the random number you will have
+            10 attemps</p>
+        <input type="text" name="" id="input">
+        <button id="submit">Submit</button>
+        <p>Perivous Gusse: <span id="previous"></span></p>
+        <p>Remaing: <span id="remaing">10</span></p>
+        <p id="results">
+
+        </p>
+        <p class="startover">
+
+        </p>
+    </div>
+
+
+    <script>
+        randomNumber = Math.floor(Math.random() * 100 + 1)
+        let inputval = document.getElementById('input');
+        let previousGusses = document.getElementById('previous');
+        let remaingGusses = document.getElementById('remaing');
+        let showResults = document.getElementById('results');
+        let showR = document.createElement('h2');
+        let showPrev = document.createElement('span');
+        let startOverr = document.querySelector('.startover')
+        let startOver = document.createElement('p');
+
+        let playGame = true;
+        let prevGusse = [];
+
+   
+        if (playGame) {
+            document.querySelector('button').addEventListener('click', function () {
+                gusse = parseInt(inputval.value)
+                validation(gusse);
+            })
+        }
+        else {
+            endGame()
+        }
+
+
+        function validation(gusse) {
+
+            if (isNaN(gusse)) {
+
+                alert('please enter a valid number')
+            }
+            else if (gusse > 100 || gusse < 1) {
+                alert('please enter a number between 1 and 100')
+            }
+            else {
+                checkGusse(gusse);
+            }
+        }
+
+
+
+        function checkGusse(gusse) {
+
+            if (gusse === randomNumber) {
+
+                displayMessage(`Wow! You Won! random number was ${randomNumber}`)
+               
+                playGame = false
+                inputval.setAttribute('disabled', "")
+                startOver.innerHTML = '<button id="btn">Start over</button>';
+                startOverr.appendChild(startOver);
+                newGame()
+
+            }
+            else if (gusse > randomNumber) {
+                displayMessage('Gusse was higher')
+                clearScreen()
+            }
+            else if (gusse < randomNumber) {
+                displayMessage('Gusse was lower')
+
+                clearScreen()
+            }
+
+        }
+
+          
+        function clearScreen() {
+            previousGusses.innerHTML += `| ${gusse}`;
+            inputval.value = '';
+            remaingGusses.innerHTML -= 1;
+            endGame()
+
+
+        }
+
+
+        function displayMessage(message) {
+
+            showR.innerHTML = (message)
+            showResults.appendChild(showR)
+        }
+
+
+
+        function endGame() {
+
+            if (remaingGusses.innerHTML == 0) {
+                displayMessage(`You Did Well! but random number was ${randomNumber}`)
+                playGame = false
+                inputval.setAttribute('disabled', "")
+                startOver.innerHTML = '<button id="btn">Start over</button>';
+                startOverr.appendChild(startOver);
+                newGame()
+            }
+        }
+
+
+
+        function newGame() {
+            document.getElementById('btn').addEventListener('click', function () {
+                randomNumber = Math.floor(Math.random() * 100 + 1)
+                inputval.removeAttribute('disabled', "")
+                prevGusse = []
+                previousGusses.innerHTML = ''
+                remaingGusses.innerHTML = 10;
+                showResults.removeChild(showR)
+                startOverr.removeChild(startOver);
+                inputval.value = ''
+                playGame = true
+
+            })
+        }
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
