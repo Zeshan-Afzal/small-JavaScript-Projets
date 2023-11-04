@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto bg changer</title>
+
+</head>
+<button class="start">Start Changing</button>
+<button class="stop">Stop Changing</button>
+<body>
+
+    <script>
+        let interVId;
+          document.querySelector('.start').addEventListener('click',()=>{
+  interVId=setInterval(colorChanger,1000)
+
+          })
+          document.querySelector('.stop').addEventListener('click',()=>{
+  clearInterval(interVId)
+          })
+
+        function colorChanger(){
+             
+            let hax='0123456789abcdef'
+            let colorCode='#'
+
+            for (let index = 0; index <6; index++) {
+
+                let random=Math.round(Math.random()*16)
+
+                  colorCode+=hax[random]
+                
+            }
+            document.body.style.backgroundColor=colorCode
+
+        }
+
+    </script>
+    
+</body>
+</html>
