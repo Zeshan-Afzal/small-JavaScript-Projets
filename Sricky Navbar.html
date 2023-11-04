@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Navbar</title>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .navbar{
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            background-color: white;
+            box-shadow: 0px 1px 3px 0px gray;
+            transition: background 0.4s ease;
+            z-index: 1;
+
+        }
+        .navbar img{
+            width: 100px;
+            height: 50px;
+
+        }
+        .navbar ul{
+            display: flex;
+
+        }
+        .navbar ul li{
+            list-style:none  ;
+            margin:0 8px;
+            transition: color 0.4s ease;
+            cursor: pointer;
+
+        }
+        .navbar ul li:hover{
+            color: red;
+        }
+        .home{
+            background:url(bg.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+
+        }
+        .blogs{
+            text-align: center;
+        }
+        .active{
+            background-color: black;
+            color: white;
+        }
+        .popup{
+            width: 250px;
+            height: 220px;
+            margin: auto;
+            position: absolute;
+            bottom: 230px;
+            left: 50%;
+            transform: translate(-50%);
+           display: flex;
+           flex-direction: column;
+           border-radius: 12px;
+           box-shadow: 0px 0px 6px gray;
+    
+            background-color: rgb(224, 220, 220);
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            transition:all 0.6s ease
+
+
+        }
+        label{
+            position: relative;
+            right: 55px;
+        }
+        .lbl{
+            right: 65px;
+        }
+        .btn{
+            margin-top: 6px;
+            width: 70px;
+            padding: 5px;
+            border: none;
+            background-color: chocolate;
+            border-radius: 5px;
+            cursor: pointer;
+
+
+        }
+        .btn:hover{
+            background-color: rgba(210, 105, 30, 0.939);
+        }
+  .active2{
+         
+    filter: blur(5px) brightness(70%);
+
+  }
+  .pupup-active{
+    visibility: visible;
+    bottom: 170px;
+    opacity: 1;
+    transition: bottom 0.6s ease ,opacity 0.9s ease;;
+
+
+  }
+.popup span{
+    position: relative;
+    left: 100px;
+    top: 5px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.popup span:hover{
+color: red;
+}
+
+.hamburger div{
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    border: 2px solid black;
+    margin: 2px;
+    margin-right: 16px;
+    cursor: pointer;
+display: none;
+
+    
+}
+
+    </style>
+</head>
+<body  class="body">
+<div class="navbar">
+
+      
+    <img src="download.svg" alt="">
+    <ul class="ul">
+        <li>home</li>
+        <li>about</li>
+        <li>blog</li>
+        <li>contact</li>
+    </ul>
+    <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+
+</div>
+<div class="home  ">
+
+   <h1>Welcome to my Website</h1>
+   <button id="btn" class="btn">Join Us</button>
+
+</div>
+
+<div class="popup   ">
+    <span id="cross">X</span>
+    <h1>Login</h1>
+    <label class="lbl" for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="Enter your email">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" placeholder="Enter your  password">
+    <button class="btn">Login</button>
+
+</div>
+
+  
+
+  <div  class="blogs">
+       
+    <h2>first blog</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quibusdam praesentium suscipit. Possimus deleniti magni sapiente fugiat magnam similique repellat repellendus mollitia reiciendis inventore, harum praesentium expedita est laborum accusamus sed quaerat! Odio qui eum debitis molestias temporibus quibusdam incidunt, soluta est odit tempora, tempore veritatis dolorum dolore totam sint sed voluptate. Facere, voluptas laudantium. Natus quos eligendi velit voluptatibus, nemo consequuntur dignissimos esse tempore fugit quas commodi magni officia nesciunt omnis, doloremque at. Praesentium, a! Officiis culpa omnis voluptatibus nulla magnam iusto quidem nihil amet, laborum, repellat accusamus rem accusantium beatae deserunt ex, sint vel expedita quos officia dolores libero autem. Laudantium nam eligendi ullam explicabo incidunt veritatis? Reiciendis voluptate, molestias quisquam sequi quidem itaque explicabo assumenda harum sed commodi error? Non sint quos cumque quas cum, architecto quidem illo obcaecati eos qui distinctio quisquam tenetur totam fuga ut animi expedita minima rerum atque ratione! Sed natus aliquid mollitia soluta omnis beatae sapiente quae tenetur minima, eaque itaque modi eum cum atque vero doloribus possimus repudiandae accusamus consectetur excepturi facilis, corrupti id? Eveniet laborum quaerat nobis maxime dicta esse itaque nisi consectetur soluta minus tenetur deleniti, distinctio dolore recusandae. Omnis, vero atque voluptatem ullam ipsum laudantium quas animi modi!</p>
+      
+  </div>
+  <div  class="blogs">
+       
+    <h2>first blog</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quibusdam praesentium suscipit. Possimus deleniti magni sapiente fugiat magnam similique repellat repellendus mollitia reiciendis inventore, harum praesentium expedita est laborum accusamus sed quaerat! Odio qui eum debitis molestias temporibus quibusdam incidunt, soluta est odit tempora, tempore veritatis dolorum dolore totam sint sed voluptate. Facere, voluptas laudantium. Natus quos eligendi velit voluptatibus, nemo consequuntur dignissimos esse tempore fugit quas commodi magni officia nesciunt omnis, doloremque at. Praesentium, a! Officiis culpa omnis voluptatibus nulla magnam iusto quidem nihil amet, laborum, repellat accusamus rem accusantium beatae deserunt ex, sint vel expedita quos officia dolores libero autem. Laudantium nam eligendi ullam explicabo incidunt veritatis? Reiciendis voluptate, molestias quisquam sequi quidem itaque explicabo assumenda harum sed commodi error? Non sint quos cumque quas cum, architecto quidem illo obcaecati eos qui distinctio quisquam tenetur totam fuga ut animi expedita minima rerum atque ratione! Sed natus aliquid mollitia soluta omnis beatae sapiente quae tenetur minima, eaque itaque modi eum cum atque vero doloribus possimus repudiandae accusamus consectetur excepturi facilis, corrupti id? Eveniet laborum quaerat nobis maxime dicta esse itaque nisi consectetur soluta minus tenetur deleniti, distinctio dolore recusandae. Omnis, vero atque voluptatem ullam ipsum laudantium quas animi modi!</p>
+      
+  </div>
+  <div  class="blogs">
+       
+    <h2>first blog</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quibusdam praesentium suscipit. Possimus deleniti magni sapiente fugiat magnam similique repellat repellendus mollitia reiciendis inventore, harum praesentium expedita est laborum accusamus sed quaerat! Odio qui eum debitis molestias temporibus quibusdam incidunt, soluta est odit tempora, tempore veritatis dolorum dolore totam sint sed voluptate. Facere, voluptas laudantium. Natus quos eligendi velit voluptatibus, nemo consequuntur dignissimos esse tempore fugit quas commodi magni officia nesciunt omnis, doloremque at. Praesentium, a! Officiis culpa omnis voluptatibus nulla magnam iusto quidem nihil amet, laborum, repellat accusamus rem accusantium beatae deserunt ex, sint vel expedita quos officia dolores libero autem. Laudantium nam eligendi ullam explicabo incidunt veritatis? Reiciendis voluptate, molestias quisquam sequi quidem itaque explicabo assumenda harum sed commodi error? Non sint quos cumque quas cum, architecto quidem illo obcaecati eos qui distinctio quisquam tenetur totam fuga ut animi expedita minima rerum atque ratione! Sed natus aliquid mollitia soluta omnis beatae sapiente quae tenetur minima, eaque itaque modi eum cum atque vero doloribus possimus repudiandae accusamus consectetur excepturi facilis, corrupti id? Eveniet laborum quaerat nobis maxime dicta esse itaque nisi consectetur soluta minus tenetur deleniti, distinctio dolore recusandae. Omnis, vero atque voluptatem ullam ipsum laudantium quas animi modi!</p>
+      
+  </div>
+
+
+  <script>
+
+
+    window.addEventListener('scroll', ()=>{
+    
+         blogEl=document.querySelector('.blogs')
+         navbarEl=document.querySelector('.navbar')
+
+         if(scrollY>blogEl.offsetTop-navbarEl.offsetHeight){
+            navbarEl.classList.add('active')
+         }else{
+            navbarEl.classList.remove('active')
+         }
+
+    })
+
+    document.getElementById('btn').addEventListener('click', ()=>{
+   
+       document.querySelector('.home').classList.add('active2')
+       document.querySelector('.navbar').classList.add('active2')
+         document.querySelector('.popup').classList.add('pupup-active')
+
+    })
+
+
+    document.getElementById('cross').addEventListener('click',()=>{
+
+      document.querySelector('.home').classList.remove('active2')
+      document.querySelector('.navbar').classList.remove('active2')
+         document.querySelector('.popup').classList.remove('pupup-active')
+
+
+    })
+         
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Effect</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: wheat;
+        }
+
+        .h1 {
+            transition: background 0.7s ease;
+            border-radius: 9px;
+
+
+        }
+    </style>
+</head>
+
+<body class="bd">
+
+</body>
+
+
+
+<script>
+    let careers = ['softwere Engineer', 'web devolper', 'AI developer', 'Game developer']
+
+    let careersIndex = 0
+    let valuesIndex = 0;
+
+    updateCareers()
+
+    function updateCareers() {
+        valuesIndex++
+        let body = document.querySelector(".bd")
+        body.innerHTML = `<h1 class='h1'> Hello I'm a ${careers[careersIndex].slice(0, valuesIndex)} </h1>`
+
+
+
+
+        setTimeout(updateCareers, 400)
+        if (valuesIndex === careers[careersIndex].length) {
+            careersIndex++
+            valuesIndex = 0
+        }
+        if (careersIndex === careers.length) {
+            careersIndex = 0
+        }
+        if (careers[careersIndex] === 'softwere Engineer') {
+            document.querySelector('.h1').style.color = 'red'
+            document.querySelector('.h1').style.background = 'yellow'
+            document.querySelector('.h1').style.fontFamily = ' Courier'
+        }
+        else if (careers[careersIndex] === 'web devolper') {
+            document.querySelector('.h1').style.color = 'purple'
+            document.querySelector('.h1').style.background = 'chocolate'
+            document.querySelector('.h1').style.fontFamily = ' Franklin Gothic'
+        }
+        else if (careers[careersIndex] === 'AI developer') {
+            document.querySelector('.h1').style.color = 'green'
+            document.querySelector('.h1').style.background = 'pink'
+            document.querySelector('.h1').style.fontFamily = 'sans-serif'
+        }
+        else if (careers[careersIndex] === 'Game developer') {
+            document.querySelector('.h1').style.color = 'blue'
+            document.querySelector('.h1').style.background = 'violet'
+            document.querySelector('.h1').style.fontFamily = 'verdana'
+        }
+
+
+
+    }
+
+
+
+
+</script>
+
+</body>
+
+</html>

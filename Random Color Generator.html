@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Generator</title>
+    <style>
+        .body {
+            margin: 0;
+            padding: 0;
+
+
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+        }
+
+        .color-box {
+            width: 100px;
+            height: 100px;
+            margin: 7px;
+            background-color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 22px;
+            border: 2px solid black;
+            cursor: pointer;
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+
+    </div>
+
+    <script>
+
+
+        for (let i = 0; i < 30; i++) {
+            let containerEl = document.querySelector('.container')
+            let colorBoxEl = document.createElement('div')
+            colorBoxEl.classList.add('color-box')
+            containerEl.appendChild(colorBoxEl)
+
+        }
+        let colorBoxes = document.querySelectorAll('.color-box')
+
+        colorAdd()
+        function colorAdd() {
+            colorBoxes.forEach((box) => {
+
+                let colorForEach = colorGenerator()
+                box.style.backgroundColor = "#" + colorForEach;
+                box.innerHTML = "#" + colorForEach;
+
+
+            })
+
+        }
+
+        function colorGenerator() {
+            let chars = '0123456789abcdef'
+            let colorCode = '';
+            colorCodeL = 6;
+
+
+            for (let index = 0; index < colorCodeL; index++) {
+
+                let randN = Math.floor(Math.random() * chars.length + 1)
+
+
+                colorCode += chars.charAt(randN)
+
+            }
+
+            return colorCode;
+
+
+
+        }
+        colorGenerator()
+
+
+
+    </script>
+
+</body>
+
+</html>

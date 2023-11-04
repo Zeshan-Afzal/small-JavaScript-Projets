@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Tabs</title>
+    <style>
+       
+       .container{
+        display:flex;
+        flex-direction: column;
+        height: 280px;
+       
+        overflow: hidden;
+        background-color: pink;
+
+
+
+    }
+    .buttonss{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr ;
+      
+
+    }
+.btn{
+    border: none;
+    background-color: crimson;
+    padding: 5px;
+    transition: all 0.3s ease;
+
+    
+
+}
+.btn:hover{
+
+opacity: 0.8;
+color: white;
+}
+.btn.live{
+    background-color: pink;
+    color: black;
+    border-bottom:2px solid black ;
+}
+.content{
+   
+  background-color: pink;
+  padding: 4px;
+
+  
+   
+    display: none;
+
+}
+.active{
+    display: block;
+}
+
+    </style>
+   
+</head>
+<body>
+
+    <div class="container">
+       
+        <div class="buttons">
+            <div class="buttonss">
+                <button id="stp1" class="btn live">first</button>
+                <button id="stp2" class="btn">second</button>
+                <button id="stp3" class="btn">third</button>
+            </div>
+          
+    
+        <div class="tabs">
+             <div id=" stp1 "  class="content active stp1">
+                <h1>first</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur atque quaerat laboriosam maiores in nemo dolor sint deleniti quos at, temporibus dignissimos soluta eos, quis illum consequuntur velit provident quisquam hic a animi fugiat tenetur id sequi? Suscipit possimus, esse aliquid maiores, sunt placeat quis aliquam similique dolores porro enim doloribus odit neque ad sapiente doloremque. Non iste voluptatem laboriosam eos amet nostrum necessitatibus harum similique?</p>
+             </div>
+             <div  id=" stp2 "   class="content stp2">
+                <h1>second</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur atque quaerat laboriosam maiores in nemo dolor sint deleniti quos at, temporibus dignissimos soluta eos, quis illum consequuntur velit provident quisquam hic a animi fugiat tenetur id sequi? Suscipit possimus, esse aliquid maiores, sunt placeat quis aliquam similique dolores porro enim doloribus odit neque ad sapiente doloremque. Non iste voluptatem laboriosam eos amet nostrum necessitatibus harum similique?</p>
+             </div>
+             <div  id="stp3"   class="content stp3 ">
+                <h1>third</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur atque quaerat laboriosam maiores in nemo dolor sint deleniti quos at, temporibus dignissimos soluta eos, quis illum consequuntur velit provident quisquam hic a animi fugiat tenetur id sequi? Suscipit possimus, esse aliquid maiores, sunt placeat quis aliquam similique dolores porro enim doloribus odit neque ad sapiente doloremque. Non iste voluptatem laboriosam eos amet nostrum necessitatibus harum similique?</p>
+             </div>
+
+           
+        </div>
+    </div>
+
+    </div>
+
+    <script>
+    
+        let  btn=document.querySelectorAll('.btn')
+        let  content=document.querySelectorAll('.content')
+         
+         btn.forEach((butn)=>{
+               
+            butn.addEventListener('click',(event)=>{
+               id=event.target.id
+               if(id){
+                btn.forEach((btnn)=>{
+                    btnn.classList.remove('live')
+
+                })
+               
+
+                event.target.classList.add('live')
+
+                content.forEach((cnt)=>{
+      cnt.classList.remove('active')
+
+      let elm=document.querySelector('.'+id)
+        elm.classList.add('active')
+ 
+           
+
+                })
+
+               }
+
+
+              
+            })
+
+         })
+
+
+
+
+
+
+
+
+        //  let  btn=document.querySelectorAll('.btn')
+         
+        //  btn.forEach((butn)=>{
+               
+        //     butn.addEventListener('click',()=>{
+                  
+        //          if(butn.innerHTML==='first'){
+        //             document.querySelector('.first')
+        //             document.querySelector('.first').classList.toggle('active')
+        //             document.querySelector('.second').classList.remove('active')
+        //               document.querySelector('.third').classList.remove('active')
+                    
+                    
+                     
+        //          }
+        //         else if(butn.innerHTML==='second'){
+        //               document.querySelector('.second').classList.toggle('active')
+        //               document.querySelector('.third').classList.remove('active')
+        //               document.querySelector('.first').classList.remove('active')
+                    
+                    
+                   
+        //          }
+        //          else if(butn.innerHTML==='third'){
+        //               document.querySelector('.third').classList.add('active')
+        //               document.querySelector('.second').classList.remove('active')
+        //               document.querySelector('.first').classList.remove('active')
+                    
+
+                      
+                     
+
+        //          }
+
+        //     })
+
+        //  })
+     
+         </script>
+    
+</body>
+</html>
